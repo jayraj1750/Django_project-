@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <style>
+        h1{
+            color: brown;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+        button:hover{
+            background-color: #14e128;
+        }
+        button{
+            background-color: #c800ff;
+        }
+    </style>
+    <title>Feedback</title>
+</head>
+<body style="background-color: aqua;">
+    <img src="https://t3.ftcdn.net/jpg/02/43/10/10/360_F_243101083_vgq22iubewZQyKJSCPNJdZ9zQtd2pYma.jpg" height="400px" width="1600px" alt="img">
+    <h1 align="center">Type Your Feedback</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button style="margin-left: 20px;border-radius: 10px;" value="savetodo">Submit</button>
+
+    
+</form>
+<Note:- style="color: red; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Note:- Here You Can Add Your Own Feedback It Will Valuable For Us!</Note:->
+</body>
+{% endblock %}

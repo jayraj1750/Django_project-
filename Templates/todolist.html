@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+<head>
+        <style>
+            table{
+             width: 100%;
+            }
+            table,th,tr,td{
+             text-align: center;
+             background-color: rgb(255, 250, 245);
+            }
+            th{
+             font-size: 20px;
+             font-family: 'Courier New', Courier, monospace;
+             font-weight: bold;
+            }
+            th,tr,td{
+             height: 50px;
+             width: 200px;
+            }
+            button{
+                background-color: brown;
+                color: white;
+            }
+            button:hover{
+                background-color: greenyellow;
+            }
+        </style>
+    <title>All Feedbacks</title>
+</head>
+<body style="background-color: aqua;">
+    <h1 align="center">All Feedbacks</h1>
+    <br>
+    <table align="center" id="table">
+        <thead>
+            <tr style="border: 2px solid red;">
+                <th style="border: 2px solid red;">Title</th>
+                <th style="border: 2px solid red;">Description</th>
+                <th style="border: 2px solid red;">Name</th>
+                <th style="border: 2px solid red;">Created_At</th>
+                <th style="border: 2px solid red;">Updated_At</th>
+                <th style="border: 2px solid red;">Update/Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+            <tr style="border: 2px solid red;"> 
+           
+                <td style="border: 2px solid red;">{{ todo.title }}</td>
+                <td style="border: 2px solid red;">{{ todo.description }}</td>
+                <td style="border: 2px solid red;">{{ todo.name }}</td>
+                <td style="border: 2px solid red;">{{ todo.created_at }}</td>
+                <td style="border: 2px solid red;">{{ todo.updated_at }}</td>
+                <td>
+                 <a href="{%url 'todo:todoedit' todo.id%}">
+		<button style="border-radius: 10px;">Update</button></a>
+		
+		<a href="{%url 'todo:tododelete' todo.id%}">
+		<button style="border-radius: 10px;">Delete</button></a>
+	   
+                
+                </td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button style="margin-bottom:150px;margin-left:540px;color:white;border-radius: 20px;"><a id="downloadlink" onclick="exportF(this)">Download into Excel</a></button>
+    <script>
+        function exportF(elem) {
+          var table = document.getElementById("table");
+          var html = table.outerHTML;
+          var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+          elem.setAttribute("href", url);
+          elem.setAttribute("download", "export.xls"); // Choose the file name
+          return false;
+        }
+        
+        </script>
+
+
+
+</body>
+
+{%endblock%}

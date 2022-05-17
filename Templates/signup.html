@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<head>
+    <style>
+        form{
+            margin-left: 500px;
+        }
+        h1{
+            color: hwb(277 60% 0%);
+        }
+        button:hover{
+            background-color: #14e128;
+        }
+        button{
+            background-color: #c800ff;
+        }
+    </style>
+</head>
+<body style="background-color: aqua;">
+<form method="post">
+    <h1 style="margin-left: 100px;">Register yourself</h1>
+
+    {%csrf_token%}
+    {{form.as_p}} 
+    <button style="color: white;font: size 20px;border-radius: 10px; margin-left: 200px;" type="submit" name="signup">signup</button>
+
+
+</form>
+</body>
+{%endblock%}

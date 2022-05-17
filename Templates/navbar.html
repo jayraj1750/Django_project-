@@ -1,0 +1,23 @@
+<head>
+    <style>
+        .nv{
+           background-color:orange;
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+        }
+    </style>
+</head>
+<nav class="navbar navbar-orange nv">
+    <img style="border-radius: 10px;" height="60px" width="200px" src="https://support.livewireindia.com/tmp/images/live_wire_logo.jpg"  alt="logo">
+    <a class="nav-link" style="color:white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="http://127.0.0.1:8000/">Home</a>
+    <a class="nav-link" style="color:white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="http://127.0.0.1:8000/todos/contact">Contact</a>
+    <a class="nav-link" style="color:white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="http://127.0.0.1:8000/todos/about">About</a>
+    <a class="nav-link" style="color:white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="http://127.0.0.1:8000/todos">All Feedbacks</a>
+    <a class="nav-link" style="color:white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="http://127.0.0.1:8000/todos/add">Add Your Own Feedback</a>
+    <a class="nav-link" style="color:white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="http://127.0.0.1:8000/account/signup">SignUp</a>
+    <a class="nav-link" style="color:white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="http://127.0.0.1:8000/account/login">SignIn</a>
+    <div>
+        {%if user.is_authenticated%}
+        <p>Hi,{{user.username}} Welcome <a href="{%url 'logout' %}">Logout</a></p>
+        {%endif%}
+    </div>
+</nav>
